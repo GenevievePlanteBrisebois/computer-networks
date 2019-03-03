@@ -87,7 +87,10 @@ def main():
             err = "\n Request invalid, enter a valid request \n"
             client_con.send(err.encode('utf-8'))
         # closing client connection
+        msg = "\n request processed. closing connection \n"
+        client_con.send(msg.encode('utf-8'))
         client_con.close()
+
 
 # operate the main function and bring the server online
 main()
