@@ -24,7 +24,8 @@ def get_foo(sck):
     filename = "foo.txt"
     # verification if the file exists
     if os.path.isfile(filename):
-        sck.send("Exists \n")
+        msg = "\nExists \n"
+        sck.send(msg.encode('utf-8'))
         # while the file is open we send the content 1024 byte at the time
         with open(filename, 'rb') as file:
             file_to_byte = file.read(1024)
@@ -39,7 +40,6 @@ def get_foo(sck):
     else:
         msg = "Error 404 - File does not exist \n"
         sck.send(msg.encode('utf-8'))
-    sck.close()
 
 
 # method for the post function, so that we replace the content of bar or create bar
